@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ProductsResponse } from '../../core/types/Product';
-import { makeRequest } from '../../core/utils/request';
+import { ProductsResponse } from 'core/types/Product';
+import { makeRequest } from 'core/utils/request';
 import ProductCard from './Components/ProductCard';
 import ProductCardLoader from './Components/Loaders/ProductCardLoader';
 import './styles.scss';
