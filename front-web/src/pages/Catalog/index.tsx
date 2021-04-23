@@ -12,12 +12,13 @@ const Catalog = () => {
     // popular um estado no componente, e listar os produtos dinâmicamente
     const [productsResponse, setProductsResponse] = useState<ProductsResponse>();
     const [isLoading, setIsLoading] = useState(false);
+    const [activePage, setActivePage] = useState(0);
 
     console.log(productsResponse);
 
     useEffect(() => {
         const params = {
-            page: 0,
+            page: activePage,
             linesPerPage: 12
         }
         // iniciar o loader
@@ -28,7 +29,7 @@ const Catalog = () => {
                 // finalizar o loader
                 setIsLoading(false);
             });
-    }, [])
+    }, [activePage])
 
     return (
         <div className="catalog-container">
@@ -42,9 +43,16 @@ const Catalog = () => {
                             <ProductCard product={product} />
                         </Link>
                     ))
-                )}
+                    )}
             </div>
-            <Pagination />
+            {/* comando abaixo trabalha como um if */}
+            {productsResponse && (
+                <Pagination
+                    totalPages={productsResponse.totalPages}
+                    activePage={activePage}
+                    onChange={page => setActivePage(page)}
+                />
+            )}
         </div>
     );
 };
