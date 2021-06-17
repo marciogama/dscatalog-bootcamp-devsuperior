@@ -14,7 +14,8 @@ import javax.validation.constraints.Size;
 import com.devsuperior.dscatalog.entities.Category;
 import com.devsuperior.dscatalog.entities.Product;
 
-public class ProductDTO implements Serializable{
+public class ProductDTO implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -116,7 +117,4 @@ public class ProductDTO implements Serializable{
 	public void setCategories(List<CategoryDTO> categories) {
 		this.categories = categories;
 	}
-	
-	
-	
 }
